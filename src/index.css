@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.stage-selector-box {
+  width: 200px;
+}
+
+.stage-selector {
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.used-stage-picture {
+  display: inline-block;
+}
+
+.stageImage {
+  width: 150px;
+  height: 90px;
+  padding: 15px 20px 15px 20px;
+  border-radius: 40px;
+}
+
+.stageName {
+  text-align: center;
+}
+
+.used-stage-title {
+  padding: 10px 0px 0px 10px;
+}
+
+.stage-reset-button {
+  margin: 20px;
+}
