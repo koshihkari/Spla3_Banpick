@@ -70,6 +70,7 @@ h2 {
   left: 5px;
   font-size: 40px;
   user-select: none;
+  font-weight: 1000;
 }
 
 .opponent-pick-display {
@@ -79,6 +80,7 @@ h2 {
   left: 5px;
   font-size: 40px;
   user-select: none;
+  font-weight: 1000;
 }
 
 .ban-display {
@@ -88,6 +90,7 @@ h2 {
   left: 10px;
   font-size: 50px;
   user-select: none;
+  font-weight: 650;
 }
 
 .banpick-switch {
