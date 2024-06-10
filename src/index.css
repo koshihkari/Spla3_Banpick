@@ -20,6 +20,7 @@ h2 {
 
 .stage-selector-box {
   width: 200px;
+  color: #000;
 }
 
 .stage-selector {
@@ -66,7 +67,7 @@ h2 {
 }
 
 .own-pick-display {
-  color: #00B16B;
+  color: #CFB220;
   position: absolute;
   top: -2px;
   left: 5px;
@@ -76,7 +77,7 @@ h2 {
 }
 
 .opponent-pick-display {
-  color: #0067C0;
+  color: #3A0DCD;
   position: absolute;
   top: -2px;
   left: 5px;
@@ -108,7 +109,7 @@ h2 {
   background-color: inherit;
   border: 1px solid #000;
   margin-right: -1px;
-  color: #00B16B;
+  color: #CFB220;
   display: inline-block;
 }
 
@@ -117,7 +118,7 @@ h2 {
   background-color: inherit;
   border: 1px solid #000;
   margin-right: -1px;
-  color: #0067C0;
+  color: #3A0DCD;
   display: inline-block;
 }
 
@@ -198,11 +199,11 @@ h2 {
 }
 
 .title-ally-switch {
-  color: #00B16B;
+  color: #CFB220;
 }
 
 .title-opponent-switch {
-  color: #0067C0;
+  color: #3A0DCD;
 }
 
 .weapon-button-area {
