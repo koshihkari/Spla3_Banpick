@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+  background-color: #292e34;
 }
 
 code {
@@ -135,6 +137,7 @@ h2 {
   border: 1px solid #000;
   margin-left: -1px;
   display: inline-block;
+  color: #000;
 }
 
 .ally-pick-switch-button:hover {
