@@ -15,8 +15,6 @@ export function WeaponArea() {
     const [opponentTeamWeaon, setOpponentTeamWeapon] = useState(new TeamWeapon());
     const [currentBanpickSwitch, setCurrentBanpickSwitch] = useState(weaponBanpick.ALLY_PICKED);
 
-    // console.log("index to id->", weaponInformation.weaponIndexToId(3));
-    // console.log("id to index->", weaponInformation.weaponIdToIndex(10010));
 
     function selectCancel(index) {
         const weaponId = weaponInformation.weaponIndexToId(index);
@@ -27,6 +25,13 @@ export function WeaponArea() {
 
     const onAllyPick = (index) => {
         const weaponId = weaponInformation.weaponIndexToId(index);
+        // すでに選択済みならキャンセル
+        if (ownTeamWeaon.isTeamInclude(weaponId)) {
+            selectCancel(index);
+            setWeaponBanpick(weaponBanpick.renew());
+            setOpponentTeamWeapon(opponentTeamWeaon);
+            return;
+        }
         if (ownTeamWeaon.canAddTeam(weaponId)) {
             selectCancel(index);
             ownTeamWeaon.addWeapon(weaponId);
@@ -38,6 +43,13 @@ export function WeaponArea() {
 
     const onOpponentPick = (index) => {
         const weaponId = weaponInformation.weaponIndexToId(index);
+        // すでに選択済みならキャンセル
+        if (opponentTeamWeaon.isTeamInclude(weaponId)) {
+            selectCancel(index);
+            setWeaponBanpick(weaponBanpick.renew());
+            setOpponentTeamWeapon(opponentTeamWeaon);
+            return;
+        }
         if (opponentTeamWeaon.canAddTeam(weaponId)) {
             selectCancel(index);
             opponentTeamWeaon.decideWeapon(weaponId);
@@ -48,8 +60,13 @@ export function WeaponArea() {
     }
 
     const onBan = (index) => {
+        // すでにban済みならbanをキャンセル
+        if (weaponBanpick.isBanned(index)) {
+            selectCancel(index);
+            setWeaponBanpick(weaponBanpick.renew())
+            return;
+        }
         selectCancel(index);
-        // const index = weaponInformation.weaponIdToIndex(weaponId);
         weaponBanpick.banTargetWeapons(index, weaponInformation);
         setWeaponBanpick(weaponBanpick.renew())
     }
@@ -86,33 +103,32 @@ export function WeaponArea() {
 
     return (
         <div className="weapon-area">
-            <p>
-                <div className="team-weapon-title">
-                    <div className="title-ally-switch">⚫︎</div>
-                </div>
-                <div className="team-weapon-title">自チームpick状況</div>
-            </p>
-            <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
-            <p>
-                <div className="team-weapon-title">
-                    <div className="title-opponent-switch">⚫︎</div>
-                </div>
-                <div className="team-weapon-title">敵チームpick状況</div>
-            </p>
-            <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+            <div className="team-weapon-area">
+                <p>
+                    <div className="team-weapon-title">
+                        <div className="title-ally-switch">⚫︎</div>
+                    </div>
+                    <div className="team-weapon-title">自チーム武器pick状況</div>
+                </p>
+                <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
+            </div>
+            <div className="team-weapon-area">
+                <p>
+                    <div className="team-weapon-title">
+                        <div className="title-opponent-switch">⚫︎</div>
+                    </div>
+                    <div className="team-weapon-title">敵チーム武器pick状況</div>
+                </p>
+                <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+            </div>
             <WeaponBanPickArea
                 weaponBanPick={weaponBanpick}
                 ontTableElementClick={onTableElementClick}
                 currentBanpickSwitch={currentBanpickSwitch}
                 onSwitchButtonClick={onSwitchButtonClick}
                 weaponInformation={weaponInformation}
+                onClickResetButton={onClickResetButton}
             />
-            <button 
-                className="weapon-reset-button"
-                onClick={onClickResetButton}
-            >
-            リセット
-            </button>
         </div>
     )
 }

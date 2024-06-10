@@ -49,8 +49,9 @@ h2 {
 }
 
 .weapon-area {
-  padding-left: 15px;
-  padding-right: 50px;
+  padding-left:  15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
 }
 
 .weaponTableElement {
@@ -83,7 +84,7 @@ h2 {
 .ban-display {
   color: red;
   position: absolute;
-  top: -10px;
+  top: -13px;
   left: 10px;
   font-size: 50px;
   user-select: none;
@@ -122,14 +123,14 @@ h2 {
   margin-right: -1px;
   color: red;
   display: inline-block;
-  padding-top: -10px;
+  /* padding-top: -10px; */
 }
 
 .cancel-switch-button {
   width: 30px;
   background-color: inherit;
   border: 1px solid #000;
-  margin-right: -1px;
+  margin-left: -1px;
   display: inline-block;
 }
 
@@ -168,18 +169,22 @@ h2 {
 }
 
 .weapon-table {
-  margin-top: 20px;
+  margin-top: 10px;
   max-width: 976.5px;
 }
 
 .weapon-reset-button {
   /* margin-left: 10px; */
   display: inline-block;
-  margin-top: 5px;
-  font-size: 11px;
-  width: 63px;
-  height: 25px;
+  margin-top: 10px;
+  margin-left: 30px;
+  height: 27px;
+  width: 80px;
   border: 1px solid #000;
+}
+
+.banpick-select-button {
+  display: inline-block;
 }
 
 .team-weapon-title {
@@ -192,4 +197,12 @@ h2 {
 
 .title-opponent-switch {
   color: #0067C0;
+}
+
+.weapon-button-area {
+  display: flex;
+}
+
+.team-weapon-area {
+  margin-bottom: 20px;
 }

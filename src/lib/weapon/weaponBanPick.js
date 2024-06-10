@@ -77,10 +77,9 @@ export class WeaponBanpick {
         return minorChangeIndexes
     }
 
-    // selectBanPick(weaponId, banPickFunc) {
-    //     banPickFunc(weaponId);
-    //     this.banWeapon(this.getMinorChangeWeapon(weaponId));
-    // }
+    isBanned(index) {
+        return this.banPickSituation[index] === this.BANNED;
+    }
 
     reset() {
         return new WeaponBanpick(this.NUMBER_OF_WEAPON);

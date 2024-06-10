@@ -54,8 +54,12 @@ export class TeamWeapon {
         return weapon === this.NO_DECIDE_WEAPON;
     }
 
+    isTeamInclude(weapon) {
+        return this.squad.includes(weapon);
+    }
+
     canAddTeam(weapon) {
-        return this.tail < this.TEAM_SIZE && !this.squad.includes(weapon);
+        return this.tail < this.TEAM_SIZE && !this.isTeamInclude(weapon);
     }
 
     addWeapon(weapon) {

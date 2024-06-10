@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import { WeaponInformation } from "../weaponInformation";
 import { WeaponBanpick } from "../weaponBanPick";
 
 
@@ -94,17 +92,40 @@ function BanPickSelectButton({onSwitchButtonClick, currentBanpickSwitch}) {
     );
 }
 
-export function WeaponBanPickArea({ontTableElementClick, onSwitchButtonClick, weaponBanPick, weaponInformation, currentBanpickSwitch}) {
+function WeaponAreaButton({onSwitchButtonClick, currentBanpickSwitch, onClickResetButton}) {
+    return (
+        <div className="weapon-button-area">
+            <div className="banpick-select-button">
+                <BanPickSelectButton
+                    onSwitchButtonClick={onSwitchButtonClick}
+                    currentBanpickSwitch={currentBanpickSwitch}
+                />
+            </div>
+            <button 
+                className="weapon-reset-button"
+                onClick={onClickResetButton}
+            >
+            リセット
+            </button>
+        </div>
+    )
+}
+
+export function WeaponBanPickArea({
+    ontTableElementClick, onSwitchButtonClick, weaponBanPick,
+    weaponInformation, currentBanpickSwitch, onClickResetButton
+}) {
     return (
         <>
+            <WeaponAreaButton
+                onSwitchButtonClick={onSwitchButtonClick}
+                currentBanpickSwitch={currentBanpickSwitch}
+                onClickResetButton={onClickResetButton}
+            />
             <BanPickTable
                 ontTableElementClick={ontTableElementClick}
                 weaponBanPick={weaponBanPick}
                 weaponInformation={weaponInformation}
-            />
-            <BanPickSelectButton
-                onSwitchButtonClick={onSwitchButtonClick}
-                currentBanpickSwitch={currentBanpickSwitch}
             />
         </>
     )
