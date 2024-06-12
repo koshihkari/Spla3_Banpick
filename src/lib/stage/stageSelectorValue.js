@@ -1,8 +1,6 @@
 export class StageSelectorValue {
     constructor(selectorCount) {
         this.stageSelectorValues = Array(selectorCount).fill(null);
-        // stageSelectorValues -> {"value": int, "label": str} []
-        // console.log("constructed!");
     }
 
     changeValue(index, newValue) {

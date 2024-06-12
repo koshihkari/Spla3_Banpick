@@ -4,7 +4,6 @@
 // let weaponInformation = new WeaponInformation({});
 // weaponInformation = await weaponInformation.loadWeaponInformation();
 // weaponInformation.setNumberOfSameCategoryWeapon();
-// console.log(weaponInformation.categoryCount)
 
 // function WeaponPickPusher({options}) {
 //     return (

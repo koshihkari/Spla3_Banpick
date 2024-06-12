@@ -16,7 +16,6 @@ export class StagePicture {
         for (let i = 0; i < this.banSelectorIndex.length; i++) {
             s.delete(selectBoxSituation[this.banSelectorIndex[i]]);
         }
-        console.log(s);
         return Array.from(s);
     }
 }

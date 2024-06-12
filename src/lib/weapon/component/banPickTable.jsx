@@ -27,8 +27,6 @@ function BanPickTable({ontTableElementClick, weaponBanPick, weaponInformation}) 
 
     const ImageTable = [];
 
-    console.log(weaponBanPick.banPickSituation);
-
     for (let i = 0; i < weaponInformation.getNumberOfWeapon(); i++) {
         ImageTable.push(
             <WeaponImage
@@ -64,7 +62,7 @@ function BanPickSelectButton({onSwitchButtonClick, currentBanpickSwitch}) {
                 title="ban"
                 className="ban-switch-button"
                 onClick={() => {onSwitchButtonClick(weaponBanPick.BANNED)}}
-            >x</div>),
+            >X</div>),
             (<div
                 title="選択キャンセル"
                 className="cancel-switch-button"

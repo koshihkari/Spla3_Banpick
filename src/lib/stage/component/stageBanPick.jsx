@@ -40,7 +40,6 @@ export function StageBanPick({stageSelectorValue, stageSelectorOption, handleRes
         setEachSelectorValue(stageSelectorValue.getAllValue());
         setEachSelectorOption(stageSelectorOption.selectableStages());
         handleResetClick(stageSelectorOption, stageSelectorValue);
-        console.log(stageSelectorValue.getAllValue());
         setSelectCompleted(false);
     }
 
@@ -49,8 +48,6 @@ export function StageBanPick({stageSelectorValue, stageSelectorOption, handleRes
         stageSelectorOption.exchangeBoxSituation(boxId, selectedOptions.value);
         setEachSelectorValue(stageSelectorValue.getAllValue());
         setEachSelectorOption(stageSelectorOption.selectableStages());
-        console.log(stageSelectorOption.selectCompleted())
-        console.log(stageSelectorOption.selectBoxSituation);
         setSelectCompleted(stageSelectorOption.selectCompleted());
     };
 
@@ -68,10 +65,8 @@ export function StageBanPick({stageSelectorValue, stageSelectorOption, handleRes
             >
             リセット
             </button>
-            {console.log(stagePicture.getUsedStageIds(stageSelectorOption.getSelectorBoxSituation()))}
             {selectCompleted && <UsedStagePictures 
                 usedStagePictureIds={stagePicture.getUsedStageIds(stageSelectorOption.getSelectorBoxSituation())}
-                // usedStagePictureIds={[3, 1, 5]}
                 stageNames={stageSelectorOption.getStageName()}
             />}
         </div>

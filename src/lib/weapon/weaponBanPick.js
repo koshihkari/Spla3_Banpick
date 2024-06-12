@@ -68,7 +68,6 @@ export class WeaponBanpick {
     }
 
     getMinorChangeIndexes(index, weaponInformation) {
-        console.log(weaponInformation)
         const weaponId = weaponInformation.weaponIndexToId(index);
         const minorChangeIds = weaponInformation.getMinorChangeIds(weaponId);
         const minorChangeIndexes = minorChangeIds.map(

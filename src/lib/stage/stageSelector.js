@@ -10,7 +10,6 @@ export class StageSelector {
     }
     
     exchange(boxId, optionId) {
-        console.log(this.option);
         this.value.changeValue(boxId, this.option.getAllOption()[optionId]['label']);
         this.option.exchangeBoxSituation(boxId, optionId);
     }

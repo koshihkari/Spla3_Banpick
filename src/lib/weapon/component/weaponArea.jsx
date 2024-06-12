@@ -86,8 +86,6 @@ export function WeaponArea() {
 
 
     const onTableElementClick = (index) => {
-        console.log(banpickSwitchHandles);
-        console.log(currentBanpickSwitch);
         banpickSwitchHandles[currentBanpickSwitch](index);
     }
 

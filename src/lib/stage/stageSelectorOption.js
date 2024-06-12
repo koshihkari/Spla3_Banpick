@@ -38,7 +38,6 @@ export class StageSelectorOption {
 
     banStage(id) {
         this.setSelectSituation(id, 1);
-        // this.exchangeBoxSituation();
     }
 
     cancelSelectStage(id) {
@@ -73,9 +72,8 @@ export class StageSelectorOption {
 
     selectCompleted() {
         for (let i = 0; i < this.allOptions.length; i++) {
-            if (this.emptySelectBox(i)) { console.log(i);return false; }
+            if (this.emptySelectBox(i)) { return false; }
         }
-        console.log(this.selectBoxSituation);
         return true;
     }
 
