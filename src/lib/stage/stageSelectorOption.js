@@ -1,13 +1,13 @@
 export class StageSelectorOption {
     constructor(MAX_NUMBER_OF_CAPABLE_SELECT) {
         this.allOptions =[
-            { value: 0, label: "ゴンズイ地区"},
-            { value: 1, label: "マテガイ放水路"},
-            { value: 2, label: "コンブトラック"},
-            { value: 3, label: "バイガイ亭"},
-            { value: 4, label: "ユノハナ大渓谷"},
-            { value: 5, label: "ナメロウ金属"},
-            { value: 6, label: "ザトウマーケット"}
+            { value: 0, label: "ザトウマーケット"},
+            { value: 1, label: "海女美術大学"},
+            { value: 2, label: "バイガイ亭"},
+            { value: 3, label: "リュウグウターミナル"},
+            { value: 4, label: "ヤガラ市場"},
+            { value: 5, label: "ナンプラー遺跡"},
+            { value: 6, label: "キンメダイ美術館"}
         ];
         // セレクトボックスに選択されているoptionのvalueを保存
         this.selectBoxSituation = Array(MAX_NUMBER_OF_CAPABLE_SELECT).fill(-1);
