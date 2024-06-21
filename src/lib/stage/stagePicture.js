@@ -11,11 +11,16 @@ export class StagePicture {
     }
 
     getUsedStageIds(selectBoxSituation) {
-        let s = new Set();
-        for (let i = 0; i < this.numberOfStages; i++) { s.add(i); }
-        for (let i = 0; i < this.banSelectorIndex.length; i++) {
-            s.delete(selectBoxSituation[this.banSelectorIndex[i]]);
+        const usedStageIds = [];
+        for (let i = 0; i < this.pickSelectorIndex.length; i++) {
+            usedStageIds.push(selectBoxSituation[this.pickSelectorIndex[i]]);
         }
-        return Array.from(s);
+        // 未選択のステージを取り出す
+        for (let stageId = 0; stageId < this.numberOfStages; stageId++) {
+            if (!selectBoxSituation.includes(stageId)) {
+                usedStageIds.push(stageId);
+            }
+        }
+        return usedStageIds;
     }
 }
