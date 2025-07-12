@@ -102,21 +102,17 @@ export function WeaponArea() {
     return (
         <div className="weapon-area">
             <div className="team-weapon-area">
-                <p>
                     <div className="team-weapon-title">
                         <div className="title-ally-switch">⚫︎</div>
                     </div>
                     <div className="team-weapon-title">自チーム武器pick状況</div>
-                </p>
                 <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
             </div>
             <div className="team-weapon-area">
-                <p>
                     <div className="team-weapon-title">
                         <div className="title-opponent-switch">⚫︎</div>
                     </div>
                     <div className="team-weapon-title">敵チーム武器pick状況</div>
-                </p>
                 <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
             </div>
             <WeaponBanPickArea
