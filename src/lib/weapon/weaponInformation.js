@@ -98,7 +98,7 @@ export class WeaponInformation {
         return labelAndValue;
     }
 
-    // スプラシューターが与えられた場合、スプラシューターコラボのみを返す
+    // スプラシューターが与えられた場合、スプラシューターコラボ, スプラシューター煌を返す
     getMinorChangeIds(weaponId) {
         const minorChangeIds = [];
         const categoryKeys = Object.keys(this.allWeaponInformation);
@@ -119,5 +119,62 @@ export class WeaponInformation {
             }
         }
         return minorChangeIds;
+    }
+
+    // メインウェポンの種類の数を返す
+    getNumberOfMainWeapon() {
+        let count = 0;
+        const categoryKeys = Object.keys(this.allWeaponInformation);
+        for (let i = 0; i < categoryKeys.length; i++) {
+            let category = this.allWeaponInformation[categoryKeys[i]];
+            count += category["count"];
+        }
+        return count;
+    }
+
+    // 同一メインウェポンを持つ武器の集合をMainFamilyと呼ぶ
+    // MainFamilyごとに配列にidを格納し, それを格納する配列を返す
+    getMainFamilies() {
+        let mainFamilies = [];
+        const categoryKeys = Object.keys(this.allWeaponInformation);
+        for (let i = 0; i < categoryKeys.length; i++) {
+            let category = this.allWeaponInformation[categoryKeys[i]];
+            let mains = category["main"];
+            for (let j = 0; j < mains.length; j++) {
+                let weapons = mains[j]["weapon"];
+                let mainFamily = [];
+                for (let k = 0; k < mains[j]["count"]; k++) {
+                    mainFamily.push(weapons[k]["id"]);
+                }
+                mainFamilies.push(mainFamily);
+            }
+        }
+        // console.log(mainFamilies);
+        return mainFamilies;
+    }
+
+    // カテゴリごとのメインウェポンの数を返す
+    getMainWeaponPerCategory() {
+        let categoryKeys = Object.keys(this.allWeaponInformation);
+        let categoryCount = Array(this.getNumberOfCategory()).fill(0);
+        for (let i = 0; i < categoryKeys.length; i++) {
+            const count = this.allWeaponInformation[categoryKeys[i]]["count"];
+            categoryCount[i] = count;
+        }
+        return categoryCount;
+    }
+
+    // categoryIndexとthumbnailIndexからmainFamilyIndexを取得
+    // categoryIndex: 0: シューター, 1: ローラー, ...
+    // thumbnailIndex: 0: ボールド, 1: わかば, ... 13: ボトル
+    // mainFamilyIndex: 0: ボールド, 1: わかば, ... 13: ボトル, 14: カーボンローラー
+    getFamilyIndex(categoryIndex, thumbnailIndex) {
+        let mainWeaponPerCategory = this.getMainWeaponPerCategory();
+        let mainFamilyIndex = 0;
+        for (let i = 0; i < categoryIndex; i++) {
+            mainFamilyIndex += mainWeaponPerCategory[i];
+        }
+        mainFamilyIndex += thumbnailIndex;
+        return mainFamilyIndex;
     }
 }

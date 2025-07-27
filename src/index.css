@@ -71,7 +71,7 @@ h2 {
   position: absolute;
   top: -2px;
   left: 5px;
-  font-size: 40px;
+  font-size: 30px;
   user-select: none;
   font-weight: 1000;
 }
@@ -212,4 +212,21 @@ h2 {
 
 .team-weapon-area {
   margin-bottom: 20px;
+}
+
+
+.main-weapon-sheet {
+  background-color: antiquewhite;
+  border: 2px solid #000000;
+  position: absolute;
+  top: -50px;
+  left: -180x;
+  width: 180px;
+  text-align: center;
+}
+
+.thumbnail-group {
+  display: inline-block;
+  position: relative;
+  margin: 0px 5px;
 }
