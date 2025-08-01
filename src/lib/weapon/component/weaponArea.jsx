@@ -14,6 +14,8 @@ export function WeaponArea() {
     const [ownTeamWeaon, setOwnTeamWeapon] = useState(new TeamWeapon());
     const [opponentTeamWeaon, setOpponentTeamWeapon] = useState(new TeamWeapon());
     const [currentBanpickSwitch, setCurrentBanpickSwitch] = useState(weaponBanpick.ALLY_PICKED);
+    // -1は非表示, 表示する武器のインデックスを与える (ボールド: 0, わかば: 1, ...)
+    const [mainWeaponSheetDisplay, setMainWeaponSheetDisplay] = useState(-1);
 
 
     function selectCancel(index) {
@@ -99,21 +101,38 @@ export function WeaponArea() {
         setOpponentTeamWeapon(new TeamWeapon());
     }
 
+    const onThumbnailClick = (index, weaponFamilyIndex) => {
+        // キャンセル, banの操作ではシートを表示せず普通に操作
+        if (currentBanpickSwitch === weaponBanpick.NOT_SELECTED || currentBanpickSwitch === weaponBanpick.BANNED) {
+            banpickSwitchHandles[currentBanpickSwitch](index);
+            return;
+        }
+        // ピック時はシートの表示を行う
+        setMainWeaponSheetDisplay(weaponFamilyIndex);
+    }
+
+    const onLeaveSheet = () => {
+        // シートからマウスカーソルを外したときに表示を消す
+        setMainWeaponSheetDisplay(-1);
+    }
+
     return (
         <div className="weapon-area">
-            <div className="team-weapon-area">
-                    <div className="team-weapon-title">
-                        <div className="title-ally-switch">⚫︎</div>
-                    </div>
-                    <div className="team-weapon-title">自チーム武器pick状況</div>
-                <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
-            </div>
-            <div className="team-weapon-area">
-                    <div className="team-weapon-title">
-                        <div className="title-opponent-switch">⚫︎</div>
-                    </div>
-                    <div className="team-weapon-title">敵チーム武器pick状況</div>
-                <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+            <div className="both-team-weapon-area">
+                <div className="team-weapon-area">
+                        <div className="team-weapon-title">
+                            <div className="title-ally-switch">⚫︎</div>
+                        </div>
+                        <div className="team-weapon-title">自チーム武器pick状況</div>
+                    <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
+                </div>
+                <div className="team-weapon-area">
+                        <div className="team-weapon-title">
+                            <div className="title-opponent-switch">⚫︎</div>
+                        </div>
+                        <div className="team-weapon-title">敵チーム武器pick状況</div>
+                    <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+                </div>
             </div>
             <WeaponBanPickArea
                 weaponBanPick={weaponBanpick}
@@ -122,6 +141,9 @@ export function WeaponArea() {
                 onSwitchButtonClick={onSwitchButtonClick}
                 weaponInformation={weaponInformation}
                 onClickResetButton={onClickResetButton}
+                onThumbnailClick={onThumbnailClick}
+                mainWeaponSheetDisplay={mainWeaponSheetDisplay}
+                onLeaveSheet={onLeaveSheet}
             />
         </div>
     )

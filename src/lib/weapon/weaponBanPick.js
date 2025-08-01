@@ -63,6 +63,7 @@ export class WeaponBanpick {
         }
     }
 
+    //IdじゃなくてIndexかも・・・？
     getSituation(weaponId) {
         return this.banPickSituation[weaponId];
     }
@@ -74,6 +75,21 @@ export class WeaponBanpick {
             (minorChangeId) => weaponInformation.weaponIdToIndex(minorChangeId)
         )
         return minorChangeIndexes
+    }
+
+    // サムネイルにする武器のIDを取得
+    // pickされているものを返し, pickされていない場合は無印を返す
+    getThumbnailId(weaponFamily, weaponInformation) {
+        // console.log("weaponFamily: " + weaponFamily);
+        let thumbnail = Math.min(...weaponFamily);
+        for (let weaponId of weaponFamily) {
+            let weaponIndex = weaponInformation.weaponIdToIndex(weaponId);
+            if (this.getSituation(weaponIndex) === this.ALLY_PICKED ||
+                this.getSituation(weaponIndex) === this.OPPONENT_PICKED) {
+                thumbnail = weaponId;
+            }
+        }
+        return thumbnail;
     }
 
     isBanned(index) {
