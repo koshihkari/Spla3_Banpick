@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/koshihkari/Spla3_Banpick",
+  "homepage": "https://koshihkari.github.io/Spla3_Banpick",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
