@@ -111,21 +111,28 @@ export function WeaponArea() {
         setMainWeaponSheetDisplay(weaponFamilyIndex);
     }
 
+    const onLeaveSheet = () => {
+        // シートからマウスカーソルを外したときに表示を消す
+        setMainWeaponSheetDisplay(-1);
+    }
+
     return (
         <div className="weapon-area">
-            <div className="team-weapon-area">
-                    <div className="team-weapon-title">
-                        <div className="title-ally-switch">⚫︎</div>
-                    </div>
-                    <div className="team-weapon-title">自チーム武器pick状況</div>
-                <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
-            </div>
-            <div className="team-weapon-area">
-                    <div className="team-weapon-title">
-                        <div className="title-opponent-switch">⚫︎</div>
-                    </div>
-                    <div className="team-weapon-title">敵チーム武器pick状況</div>
-                <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+            <div className="both-team-weapon-area">
+                <div className="team-weapon-area">
+                        <div className="team-weapon-title">
+                            <div className="title-ally-switch">⚫︎</div>
+                        </div>
+                        <div className="team-weapon-title">自チーム武器pick状況</div>
+                    <ShowTeamWeapon teamWeapon={ownTeamWeaon}/>
+                </div>
+                <div className="team-weapon-area">
+                        <div className="team-weapon-title">
+                            <div className="title-opponent-switch">⚫︎</div>
+                        </div>
+                        <div className="team-weapon-title">敵チーム武器pick状況</div>
+                    <ShowTeamWeapon teamWeapon={opponentTeamWeaon}/>
+                </div>
             </div>
             <WeaponBanPickArea
                 weaponBanPick={weaponBanpick}
@@ -136,6 +143,7 @@ export function WeaponArea() {
                 onClickResetButton={onClickResetButton}
                 onThumbnailClick={onThumbnailClick}
                 mainWeaponSheetDisplay={mainWeaponSheetDisplay}
+                onLeaveSheet={onLeaveSheet}
             />
         </div>
     )

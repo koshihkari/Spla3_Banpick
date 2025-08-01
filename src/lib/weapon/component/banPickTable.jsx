@@ -17,33 +17,33 @@ function WeaponImage({index, banpickDisplay, ontTableElementClick, id}) {
     )
 }
 
-function BanPickTable({ontTableElementClick, weaponBanPick, weaponInformation}) {
-    const banpickDisplays = [
-        (<div></div>),
-        (<div className="own-pick-display">○</div>),
-        (<div className="opponent-pick-display">○</div>),
-        (<div className="ban-display">x</div>)
-    ]
+// function BanPickTable({ontTableElementClick, weaponBanPick, weaponInformation}) {
+//     const banpickDisplays = [
+//         (<div></div>),
+//         (<div className="own-pick-display">○</div>),
+//         (<div className="opponent-pick-display">○</div>),
+//         (<div className="ban-display">x</div>)
+//     ]
 
-    const ImageTable = [];
+//     const ImageTable = [];
 
-    for (let i = 0; i < weaponInformation.getNumberOfWeapon(); i++) {
-        ImageTable.push(
-            <WeaponImage
-                key={i} index={i}
-                id={weaponInformation.weaponIndexToId(i)}
-                banpickDisplay={banpickDisplays[weaponBanPick.getSituation(i)]}
-                ontTableElementClick={ontTableElementClick}
-            />
-        );
-    }
+//     for (let i = 0; i < weaponInformation.getNumberOfWeapon(); i++) {
+//         ImageTable.push(
+//             <WeaponImage
+//                 key={i} index={i}
+//                 id={weaponInformation.weaponIndexToId(i)}
+//                 banpickDisplay={banpickDisplays[weaponBanPick.getSituation(i)]}
+//                 ontTableElementClick={ontTableElementClick}
+//             />
+//         );
+//     }
     
-    return (
-        <div className="weapon-table">
-            {ImageTable}
-        </div>
-    )
-}
+//     return (
+//         <div className="weapon-table">
+//             {ImageTable}
+//         </div>
+//     )
+// }
 
 function BanPickSelectButton({onSwitchButtonClick, currentBanpickSwitch}) {
     const weaponBanPick = new WeaponBanpick();
@@ -125,7 +125,7 @@ function WeaponThumbnail({index, banpickDisplay, onThumbnailClick, id, mainFamil
     )
 }
 
-function MainWeaponSheet({ontTableElementClick, weaponBanPick, weaponInformation, mainFamilyIds}) {
+function MainWeaponSheet({ontTableElementClick, weaponBanPick, weaponInformation, mainFamilyIds, onLeaveSheet}) {
     const Images = [];
     const banpickDisplays = [
         (<div></div>),
@@ -147,38 +147,38 @@ function MainWeaponSheet({ontTableElementClick, weaponBanPick, weaponInformation
     }
 
     return (
-        <div className="main-weapon-sheet">
+        <div className="main-weapon-sheet" onMouseLeave={onLeaveSheet}>
             {Images}
         </div>
     )
 }
 
-function BanPickTable2({ontTableElementClick, weaponBanPick, weaponInformation}) {
-    const mainFamilies = weaponInformation.getMainFamilies();
-    console.log(weaponInformation);
-    console.log(mainFamilies);
-    const ImageTable = [];
-    for (let mainFamilyIndex = 0; mainFamilyIndex < weaponInformation.getNumberOfMainWeapon(); mainFamilyIndex++) {
-        ImageTable.push(
-            <MainWeaponSheet
-                key={mainFamilyIndex}
-                ontTableElementClick={ontTableElementClick}
-                weaponBanPick={weaponBanPick}
-                weaponInformation={weaponInformation}
-                mainFamilyIds={mainFamilies[mainFamilyIndex]}
-            />
-        )
-    }
+// function BanPickTable2({ontTableElementClick, weaponBanPick, weaponInformation}) {
+//     const mainFamilies = weaponInformation.getMainFamilies();
+//     console.log(weaponInformation);
+//     console.log(mainFamilies);
+//     const ImageTable = [];
+//     for (let mainFamilyIndex = 0; mainFamilyIndex < weaponInformation.getNumberOfMainWeapon(); mainFamilyIndex++) {
+//         ImageTable.push(
+//             <MainWeaponSheet
+//                 key={mainFamilyIndex}
+//                 ontTableElementClick={ontTableElementClick}
+//                 weaponBanPick={weaponBanPick}
+//                 weaponInformation={weaponInformation}
+//                 mainFamilyIds={mainFamilies[mainFamilyIndex]}
+//             />
+//         )
+//     }
     
-    return (
-        <div className="weapon-table">
-            {ImageTable}
-        </div>
-    )
-}
+//     return (
+//         <div className="weapon-table">
+//             {ImageTable}
+//         </div>
+//     )
+// }
 
 // サムネイルテーブルのテスト
-function BanPickTable3({ontTableElementClick, onThumbnailClick, weaponBanPick, weaponInformation, mainWeaponSheetDisplay}) {
+function BanPickTable({ontTableElementClick, onThumbnailClick, weaponBanPick, weaponInformation, mainWeaponSheetDisplay, onLeaveSheet}) {
     const mainFamilies = weaponInformation.getMainFamilies();
     const AllThumbnailTable = [];
     const mainWeaponPerCategory = weaponInformation.getMainWeaponPerCategory();
@@ -198,6 +198,7 @@ function BanPickTable3({ontTableElementClick, onThumbnailClick, weaponBanPick, w
                 categoryIndex={categoryIndex}
                 onThumbnailClick={onThumbnailClick}
                 mainWeaponSheetDisplay={mainWeaponSheetDisplay}
+                onLeaveSheet={onLeaveSheet}
             />
         );
         cursor += categoryCount;
@@ -210,7 +211,7 @@ function BanPickTable3({ontTableElementClick, onThumbnailClick, weaponBanPick, w
 }
 
 function ThumbnailGroup({
-    weaponThumbnail, ontTableElementClick, weaponBanPick, weaponInformation, mainFamilyIndex, mainWeaponSheetDisplay, mainFamilyIds
+    weaponThumbnail, ontTableElementClick, weaponBanPick, weaponInformation, mainFamilyIndex, mainWeaponSheetDisplay, mainFamilyIds, onLeaveSheet
 }) {
     return (
         <div className="thumbnail-group">
@@ -222,13 +223,14 @@ function ThumbnailGroup({
                     weaponBanPick={weaponBanPick}
                     weaponInformation={weaponInformation}
                     mainFamilyIds={mainFamilyIds}
+                    onLeaveSheet={onLeaveSheet}
                 />
             ) : null}
         </div>
     )
 }
 
-function CategoryTable({ontTableElementClick, onThumbnailClick, weaponBanPick, weaponInformation, category, categoryIndex, mainWeaponSheetDisplay}) {
+function CategoryTable({ontTableElementClick, onThumbnailClick, weaponBanPick, weaponInformation, category, categoryIndex, mainWeaponSheetDisplay, onLeaveSheet}) {
     // categoriesは[[スシ, スシコラ, スシ煌], ..., [ボトル, ボトフォ]]のような感じ
     const Groups = [];
     const banpickDisplays = [
@@ -263,6 +265,7 @@ function CategoryTable({ontTableElementClick, onThumbnailClick, weaponBanPick, w
                 // ここ
                 mainFamilyIndex={mainFamilyIndex}
                 mainWeaponSheetDisplay={mainWeaponSheetDisplay}
+                onLeaveSheet={onLeaveSheet}
             />
         );
     }
@@ -276,7 +279,7 @@ function CategoryTable({ontTableElementClick, onThumbnailClick, weaponBanPick, w
 export function WeaponBanPickArea({
     ontTableElementClick, onSwitchButtonClick, weaponBanPick,
     weaponInformation, currentBanpickSwitch, onClickResetButton,
-    onThumbnailClick, mainWeaponSheetDisplay
+    onThumbnailClick, mainWeaponSheetDisplay, onLeaveSheet
 }) {
     return (
         <>
@@ -290,12 +293,13 @@ export function WeaponBanPickArea({
                 weaponBanPick={weaponBanPick}
                 weaponInformation={weaponInformation}
             /> */}
-            <BanPickTable3
+            <BanPickTable
                 ontTableElementClick={ontTableElementClick}
                 weaponBanPick={weaponBanPick}
                 weaponInformation={weaponInformation}
                 onThumbnailClick={onThumbnailClick}
                 mainWeaponSheetDisplay={mainWeaponSheetDisplay}
+                onLeaveSheet={onLeaveSheet}
             />
         </>
     )

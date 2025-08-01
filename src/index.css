@@ -9,6 +9,14 @@ body {
   background-color: #292e34;
 }
 
+.main-container {
+  max-width: 1500px; /* コンテンツの最大幅を指定します。サイトのデザインに合わせて調整してください */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px; /* 画面の端とコンテンツの間に余白を持たせます */
+  padding-right: 15px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -81,7 +89,7 @@ h2 {
   position: absolute;
   top: -2px;
   left: 5px;
-  font-size: 40px;
+  font-size: 30px;
   user-select: none;
   font-weight: 1000;
 }
@@ -196,6 +204,7 @@ h2 {
 
 .team-weapon-title {
   display: inline-block;
+  padding: 5px;
 }
 
 .title-ally-switch {
@@ -210,23 +219,70 @@ h2 {
   display: flex;
 }
 
-.team-weapon-area {
-  margin-bottom: 20px;
+.both-team-weapon-area {
+  padding: 15px;
+  padding-left: 0;
 }
 
 
 .main-weapon-sheet {
-  background-color: antiquewhite;
+  background-color: #f0f8ff ;
   border: 2px solid #000000;
   position: absolute;
-  top: -50px;
-  left: -180x;
-  width: 180px;
-  text-align: center;
+  top: -20px;
+  left: -80px;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1;
+  border-radius: 20px;
+  opacity: 0.83;
 }
 
 .thumbnail-group {
   display: inline-block;
   position: relative;
   margin: 0px 5px;
+}
+
+.main-weapon-sheet .weapon-icon {
+  padding: 10px; /* この数値を変更してお好みの余白に調整してください */
+}
+
+
+.main-weapon-sheet .own-pick-display {
+  color: #CFB220;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 40px;
+  user-select: none;
+  font-weight: 1000;
+}
+
+.main-weapon-sheet .opponent-pick-display {
+  color: #3A0DCD;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 40px;
+  user-select: none;
+  font-weight: 1000;
+}
+
+.main-weapon-sheet .ban-display {
+  color: red;
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  font-size: 50px;
+  user-select: none;
+  font-weight: 650;
+}
+
+.category-table {
+  text-align: left;
+  padding-top: 10px;
 }
