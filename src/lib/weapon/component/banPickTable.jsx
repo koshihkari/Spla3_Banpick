@@ -9,7 +9,7 @@ function WeaponImage({index, banpickDisplay, ontTableElementClick, id}) {
         }}>
             {banpickDisplay}
             <img
-                src={"./weapon/images/"+String(id)+".png"}
+                src={"./weapon/images/"+String(id)+".webp"}
                 className="weapon-icon"
                 alt={index}
             />
