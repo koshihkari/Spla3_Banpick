@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Spla3_Banpick/static/css/main.b668419d.css",
+    "main.js": "/Spla3_Banpick/static/js/main.c78f6995.js",
+    "static/js/453.a6a97343.chunk.js": "/Spla3_Banpick/static/js/453.a6a97343.chunk.js",
+    "index.html": "/Spla3_Banpick/index.html",
+    "main.b668419d.css.map": "/Spla3_Banpick/static/css/main.b668419d.css.map",
+    "main.c78f6995.js.map": "/Spla3_Banpick/static/js/main.c78f6995.js.map",
+    "453.a6a97343.chunk.js.map": "/Spla3_Banpick/static/js/453.a6a97343.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b668419d.css",
+    "static/js/main.c78f6995.js"
+  ]
+}
