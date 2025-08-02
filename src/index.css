@@ -13,8 +13,8 @@ body {
   max-width: 1500px; /* コンテンツの最大幅を指定します。サイトのデザインに合わせて調整してください */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px; /* 画面の端とコンテンツの間に余白を持たせます */
-  padding-right: 15px;
+  padding-left: 60px; /* 画面の端とコンテンツの間に余白を持たせます */
+  padding-right: 40px;
 }
 
 code {
