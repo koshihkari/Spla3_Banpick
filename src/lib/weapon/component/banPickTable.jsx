@@ -1,4 +1,5 @@
 import { WeaponBanpick } from "../weaponBanPick";
+import { preloadWeaponImages } from "../preload";
 
 
 function WeaponImage({index, banpickDisplay, ontTableElementClick, id}) {
@@ -117,7 +118,7 @@ function WeaponThumbnail({index, banpickDisplay, onThumbnailClick, id, mainFamil
         }}>
             {banpickDisplay}
             <img
-                src={"./weapon/images/"+String(id)+".png"}
+                src={"./weapon/images/"+String(id)+".webp"}
                 className="weapon-icon"
                 alt={index}
             />
@@ -183,6 +184,8 @@ function BanPickTable({ontTableElementClick, onThumbnailClick, weaponBanPick, we
     const AllThumbnailTable = [];
     const mainWeaponPerCategory = weaponInformation.getMainWeaponPerCategory();
     // console.log("categoryCount: " + categoryCount);
+    // 画像のプリロード
+    preloadWeaponImages(weaponInformation);
     // カテゴリの先頭を指す
     let cursor = 0;
     for (let categoryIndex = 0; categoryIndex < mainWeaponPerCategory.length; categoryIndex++) {
