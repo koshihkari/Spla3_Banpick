@@ -17,7 +17,7 @@ function PersonWeapon({id}) {
     return (
         // <img src="./weapon/images/noDecideWeapon.png" alt="aaa" />
         <img
-            src={"./weapon/images/"+String(id)+".png"}
+            src={"./weapon/images/"+String(id)+".webp"}
             alt={String(id)}
             className="team-weapon-icon"
         />

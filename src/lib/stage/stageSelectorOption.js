@@ -4,9 +4,9 @@ export class StageSelectorOption {
             { value: 0, label: "ザトウマーケット"},
             { value: 1, label: "海女美術大学"},
             { value: 2, label: "バイガイ亭"},
-            { value: 3, label: "リュウグウターミナル"},
+            { value: 3, label: "マサバ海峡大橋"},
             { value: 4, label: "ヤガラ市場"},
-            { value: 5, label: "ナンプラー遺跡"},
+            { value: 5, label: "マヒマヒリゾート&スパ"},
             { value: 6, label: "キンメダイ美術館"}
         ];
         // セレクトボックスに選択されているoptionのvalueを保存

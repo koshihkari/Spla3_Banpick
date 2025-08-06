@@ -3,15 +3,15 @@ export function UsedStagePictures({usedStagePictureIds, stageNames}) {
         <>
             <div className="used-stage-title">使用するステージ</div>
             <UsedStagePicture
-                src={"./images/stage"+usedStagePictureIds[0]+".jpg"}
+                src={"./images/stage"+usedStagePictureIds[0]+".png"}
                 stageName={stageNames[usedStagePictureIds[0]]}
             />
             <UsedStagePicture
-                src={"./images/stage"+usedStagePictureIds[1]+".jpg"}
+                src={"./images/stage"+usedStagePictureIds[1]+".png"}
                 stageName={stageNames[usedStagePictureIds[1]]}
             />
             <UsedStagePicture
-                src={"./images/stage"+usedStagePictureIds[2]+".jpg"}
+                src={"./images/stage"+usedStagePictureIds[2]+".png"}
                 stageName={stageNames[usedStagePictureIds[2]]}
             />
         </>
